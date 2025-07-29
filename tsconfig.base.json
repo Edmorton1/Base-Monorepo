@@ -1,0 +1,51 @@
+{
+	"compilerOptions": {
+    "module": "nodenext",
+    "target": "esnext",
+    "moduleResolution": "nodenext",
+
+		"allowJs": false,
+		"checkJs": false,
+		"jsx": "react-jsx",
+		"useDefineForClassFields": true,
+		"resolveJsonModule": true,
+
+		"removeComments": true,
+		"importHelpers": true,
+		"importsNotUsedAsValues": "remove",
+		"downlevelIteration": true,
+		"sourceMap": false,
+		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+
+		"strict": true,
+		// РУГАЕТСЯ ЕСЛИ ПЕРЕМЕННАЯ НЕ ИСПОЛЬЗУЕТСЯ
+		"noUnusedLocals": true,
+
+		// РУГАЕТСЯ ЕСЛИ НЕТ ЯВНОГО ОПРЕДЕЛЕНИЯ ПАРАМЕТРА ЕСЛИ ОН undefined
+		"exactOptionalPropertyTypes": true,
+
+		// РУГАЕТСЯ ЕСЛИ НЕТ ЯВНОГО return
+		"noImplicitReturns": true,
+
+		"noFallthroughCasesInSwitch": true,
+
+		// ВОЗВРАЩАЕТ undefined ИЗ НЕЯВНЫХ КОНСТРУКЦИЙ
+		"noUncheckedIndexedAccess": true,
+
+		"noImplicitOverride": true,
+
+		// РУАГЕТСЯ ЕСЛИ ПИШЕТСЯ ЧЕРЕЗ .asd ВМЕСТО ["asd"]
+		"noPropertyAccessFromIndexSignature": true,
+
+		"allowUnusedLabels": false,
+		"allowUnreachableCode": false,
+
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+	},
+	"exclude": ["node_modules", "dist", ".jest-cache"],
+}

@@ -1,0 +1,8 @@
+node_modules
+dist
+
+eslint.config.mjs
+babel.config.js
+.prettierrc
+.prettierignore
+.gitignore

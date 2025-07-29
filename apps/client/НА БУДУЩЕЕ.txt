@@ -1,0 +1,3 @@
+// ПОТОМ ДОБАВИТЬ REACT QUERY
+// ЗАМЕНИТЬ MobX на Redux ТУЛКИТ
+МОЖЕТ tailwind

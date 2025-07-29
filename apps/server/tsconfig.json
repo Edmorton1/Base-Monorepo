@@ -1,0 +1,22 @@
+{
+	"extends": "../../tsconfig.base.json",
+
+	"compilerOptions": {
+		"baseUrl": ".",
+		"outDir": "./dist/",
+
+		"lib": ["ESNext"],
+
+		"paths": {
+			"@libs/types/*": ["../../libs/types/src/*"],
+			"@libs/shared/*": ["../../libs/shared/src/*"],
+			"@apps/server/*": ["./src/*"]
+		},
+
+		// "types": ["node", "jest"],
+	},
+	"references": [
+		{ "path": "../../libs/types/tsconfig.json" },
+		{ "path": "../../libs/shared/tsconfig.json" }
+	]
+}

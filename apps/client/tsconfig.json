@@ -1,0 +1,22 @@
+{
+	"extends": "../../tsconfig.base.json",
+
+	"compilerOptions": {
+		"baseUrl": ".",
+		"outDir": "./dist/",
+
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+		"paths": {
+			"@libs/types/*": ["../../libs/types/src/*"],
+			"@libs/shared/*": ["../../libs/shared/src/*"],
+			"@apps/client/*": ["./src/*"]
+		}
+
+		// "types": ["react", "jest"]
+	},
+	"references": [
+		{ "path": "../../libs/types/tsconfig.json" },
+		{ "path": "../../libs/shared/tsconfig.json" }
+	]
+}

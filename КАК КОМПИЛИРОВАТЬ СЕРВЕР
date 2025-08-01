@@ -1,0 +1,19 @@
+Для поддержки алиасов в импортах Babel сам по себе не решит задачу. Нужно дополнительно настроить плагины:
+
+babel-plugin-module-resolver — позволяет указать алиасы и преобразовать их в абсолютные пути при транспиляции.
+
+Пример настройки .babelrc для алиасов:
+
+json
+Copy
+Edit
+{
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "@components": "./src/components",
+        "@utils": "./src/utils"
+      }
+    }]
+  ]
+}

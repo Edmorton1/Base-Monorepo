@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
+		"watch": "npx tsc --noEmit --watch",
 		"dev": "nodemon -r tsconfig-paths/register src/index.ts",
 		"build": "tsc --build ../../tsconfig.json && tsc-alias -p tsconfig.json",
 		"start": "node ./dist/server/src/index.js",
@@ -20,9 +21,11 @@
 		"tsconfig-paths": "^4.2.0"
 	},
 	"dependencies": {
-		"@app/shared": "1.0.0",
-		"@app/types": "1.0.0",
+		"@libs/shared": "1.0.0",
+		"@libs/types": "1.0.0",
+		"@types/cookie-parser": "^1.4.9",
 		"connect-redis": "^9.0.0",
+		"cookie-parser": "^1.4.7",
 		"cors": "^2.8.5",
 		"express": "^5.1.0",
 		"express-rate-limit": "^7.5.1",

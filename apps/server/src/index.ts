@@ -1,15 +1,22 @@
-// import { asd } from "@app/server/second";
-// import { zxc } from "@app/shared/test";
-// import { qwe } from "@app/types/test";
-// import { qwe } from "@app/types/index"
+import path from "path";
 
-import { asd } from "@apps/server/second";
-import { zxc } from "@libs/shared/test";
-import { qwe } from "@libs/types/test";
+console.log(path.resolve(process.cwd(), ".env"))
 
-// import { asd } from "@apps/server/second";
-// import { zxc } from "@libs/shared/test";
-// import { qwe } from "@libs/types/test";
+import dotenv from "dotenv"
+dotenv.config({path: path.resolve(process.cwd(), ".env")})
 
-console.log(zxc + asd + qwe);
+import appCont from "@apps/server/config/containers/appCont.di";
+import App from "@apps/server/server/server";
+import "@apps/server/types/declarations/index"
+import "reflect-metadata"
+import { connectRedis } from "@apps/server/infrastructure/helpers/databases/redis/redis";
 
+async function bootstrap():Promise<void> {
+	connectRedis()
+	
+	const app = appCont.get<App>(App);
+
+	await app.init();
+}
+
+export const boot = bootstrap();

@@ -1,0 +1,62 @@
+import { inject, injectable } from "inversify";
+import ServerExpress from "@apps/server/server/server.express";
+import ConfigService from "@apps/server/config/services/config.service";
+import type { ILogger } from "@apps/server/infrastructure/helpers/logger/logger.controller";
+import TYPES from "@apps/server/config/containers/types";
+import type { DBType } from "@apps/server/infrastructure/helpers/databases/postgres/config/db";
+import { redisClient } from "@apps/server/infrastructure/helpers/databases/redis/redis";
+
+// ЭНДПОЙНТЫ РЕАЛИЗОВЫВАТЬ В КОНТРОЛЛЕРАХ
+
+interface IServer {
+	basePath: string;
+	port: number;
+
+	init: () => void;
+	close: () => void;
+}
+
+@injectable()
+class App implements IServer {
+	basePath: string;
+	port: number;
+
+	constructor(
+		@inject(TYPES.LoggerController)
+		private readonly logger: ILogger,
+		@inject(ConfigService)
+		private readonly configService: ConfigService,
+		@inject(ServerExpress)
+		private readonly framework: ServerExpress,
+		@inject(TYPES.DataBase)
+		private readonly db: DBType
+	) {
+		this.basePath = this.configService.get("URL_SERVER");
+    this.port = Number(this.configService.get("PORT"))
+	}
+
+	init = async () => {
+		this.logger.info(`SERVER STARTED ON ${this.configService.get("URL_SERVER")} CLIENT ON  ${this.configService.get("URL_CLIENT")}`);
+		this.framework.init(this.port);
+
+		try {
+			const req = await this.db.raw("SELECT 1")
+			this.logger.info({PG_IS_WORK: req.rows})
+		} catch (err) {
+			this.logger.error({PG_NOT_WORK: err})
+		}
+
+		try {
+			const req = await redisClient.get("session-83_w0L6mX-F_QBCcgCGjD8e-t4Pqt1Ei")
+			this.logger.info({REDIS_WORK: req})
+		} catch (err) {
+			this.logger.error({REDIS_NOT_WORK: err})
+		}
+	};
+
+	close = () => {
+		this.framework.close();
+	};
+}
+
+export default App;

@@ -2,14 +2,15 @@
   "name": "app",
   "version": "1.0.0",
   "scripts": {
-    "watch": "npx tsc --noEmit --watch",
     "lint": "npx eslint .",
     
+    "watch:s": "npm run watch --workspace=@apps/server",
     "dev:s": "npm run dev --workspace=@apps/server",
     "build:s": "npm run build --workspace=@apps/server",
     "start:s": "npm run start --workspace=@apps/server",
     "test:s": "npm run test --workspace=@apps/server",
 
+    "watch:c": "npm run watch --workspace=@apps/client",
     "dev:c": "npm run dev --workspace=@apps/client",
     "build:c": "npm run build --workspace=@apps/client",
     "start:c": "npm run start --workspace=@apps/client",

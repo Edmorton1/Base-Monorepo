@@ -9,7 +9,7 @@ export interface ILogger {
 @injectable()
 export class LoggerController implements ILogger {
 	constructor(
-		@inject(TYPES.PinoService)
+		@inject(TYPES.Utils.LoggerService)
 		private readonly logger: ILogger,
 	) {}
 	info: ILogger["info"] = data => {

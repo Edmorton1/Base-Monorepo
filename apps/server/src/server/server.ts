@@ -22,13 +22,13 @@ class App implements IServer {
 	port: number;
 
 	constructor(
-		@inject(TYPES.LoggerController)
+		@inject(TYPES.Utils.LoggerController)
 		private readonly logger: ILogger,
-		@inject(ConfigService)
+		@inject(TYPES.App.Config)
 		private readonly configService: ConfigService,
-		@inject(ServerExpress)
+		@inject(TYPES.App.Server)
 		private readonly framework: ServerExpress,
-		@inject(TYPES.DataBase)
+		@inject(TYPES.Utils.DataBase)
 		private readonly db: DBType,
 	) {
 		this.basePath = this.configService.get("URL_SERVER");

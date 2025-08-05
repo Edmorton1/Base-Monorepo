@@ -21,8 +21,8 @@
 		"tsconfig-paths": "^4.2.0"
 	},
 	"dependencies": {
-		"@libs/shared": "1.0.0",
-		"@libs/types": "1.0.0",
+		"@libs/shared": "workspace:*",
+		"@libs/types": "workspace:*",
 		"@types/cookie-parser": "^1.4.9",
 		"connect-redis": "^9.0.0",
 		"cookie-parser": "^1.4.7",

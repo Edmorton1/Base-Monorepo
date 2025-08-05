@@ -5,8 +5,8 @@ import { ContainerModule } from "inversify";
 import { TYPES } from "@apps/server/config/containers/types";
 
 export const utilityBindings = new ContainerModule(({ bind }) => {
-	bind<PinoService>(TYPES.PinoService).to(PinoService);
-	bind<ILogger>(TYPES.LoggerController).to(LoggerController);
-	bind<DBType>(TYPES.DataBase).toConstantValue(db);
+	bind<PinoService>(TYPES.Utils.LoggerService).to(PinoService);
+	bind<ILogger>(TYPES.Utils.LoggerController).to(LoggerController);
+	bind<DBType>(TYPES.Utils.DataBase).toConstantValue(db);
 });
 

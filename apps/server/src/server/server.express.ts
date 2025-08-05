@@ -17,9 +17,9 @@ class ServerExpress {
 	server: Server;
 
 	constructor(
-		@inject(TYPES.LoggerController)
+		@inject(TYPES.Utils.LoggerController)
 		private readonly logger: ILogger,
-		@inject(ServerRoutes)
+		@inject(TYPES.App.Routes)
 		private readonly serverRoutes: ServerRoutes,
 	) {
 		this.app = express();

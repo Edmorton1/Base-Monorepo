@@ -16,4 +16,3 @@ interface SessionDataResolved {
 declare module "express-session" {
   interface SessionData extends SessionDataResolved {}
 }
-

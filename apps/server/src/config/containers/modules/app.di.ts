@@ -7,9 +7,9 @@ import { TYPES } from "@apps/server/config/containers/types";
 import ServerRoutes from "@apps/server/server/express.routes";
 
 export const appBindings = new ContainerModule(({ bind }) => {
-	bind<ServerExpress>(ServerExpress).toSelf();
-	bind<ConfigService>(ConfigService).toSelf();
-	bind<ServerRoutes>(ServerRoutes).toSelf();
+	bind<ServerExpress>(TYPES.App.Server).to(ServerExpress);
+	bind<ConfigService>(TYPES.App.Config).to(ConfigService);
+	bind<ServerRoutes>(TYPES.App.Routes).to(ServerRoutes);
 	bind<TestController>(TYPES.Controllers.Test).to(TestController);
-	bind<App>(App).toSelf();
+	bind<App>(TYPES.App.App).to(App);
 });

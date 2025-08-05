@@ -9,7 +9,7 @@ export class ConfigService {
 	private config: DotenvParseOutput;
 
 	constructor(
-		@inject(TYPES.LoggerController)
+		@inject(TYPES.Utils.LoggerController)
 		private readonly logger: ILogger,
 	) {
 		const result: DotenvConfigOutput = config();

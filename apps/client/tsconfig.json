@@ -11,12 +11,8 @@
 			"@libs/types/*": ["../../libs/types/src/*"],
 			"@libs/shared/*": ["../../libs/shared/src/*"],
 			"@apps/client/*": ["./src/*"]
-		}
+		},
 
-		// "types": ["react", "jest"]
+		"types": ["react", "jest"]
 	},
-	"references": [
-		{ "path": "../../libs/types/tsconfig.json" },
-		{ "path": "../../libs/shared/tsconfig.json" }
-	]
 }

@@ -1,9 +1,10 @@
 import { injectable } from "inversify";
-import BaseController from "@apps/server/config/base/Base.controller";
+import { BaseController } from "@apps/server/config/base/Base.controller";
 import { Request, Response } from "express";
+import { HttpError } from "@libs/shared/CONST";
 
 @injectable()
-class TestController extends BaseController {
+export class TestController extends BaseController {
 	constructor() {
 		super();
 		this.bindRoutes([
@@ -16,8 +17,8 @@ class TestController extends BaseController {
 	}
 
 	get = async (req: Request, res: Response) => {
-		res.sendStatus(200)
+		console.log("ZAPROS");
+		await Promise.reject(new HttpError(403, "asdasdasdads"));
 	};
 }
 
-export default TestController;

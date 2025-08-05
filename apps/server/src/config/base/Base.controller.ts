@@ -1,10 +1,5 @@
 import { NextFunction, Request, Response, Router } from "express";
-import {
-	authGet,
-	authPost,
-	noAuthGet,
-	noAuthPost,
-} from "@apps/server/config/middlewares/Express.ratelimiter";
+import { authGet, authPost, noAuthGet, noAuthPost } from "@apps/server/config/middlewares/Express.ratelimiter";
 import { logger_pino } from "@apps/server/infrastructure/helpers/logger/pino";
 
 export interface IControllerRoute {
@@ -14,7 +9,7 @@ export interface IControllerRoute {
 	middlewares?: ((req: Request, res: Response, next: NextFunction) => any)[]; //Сами допишите тип для Middlware типа :)
 }
 
-class BaseController {
+export class BaseController {
 	private readonly _router: Router;
 	constructor() {
 		this._router = Router();
@@ -39,10 +34,8 @@ class BaseController {
 
 			const pipline = [...route.middlewares, route.handle];
 
-			logger_pino.info({binded: `${route}`})
+			logger_pino.info({ binded: `${route}` });
 			this.router[route.method](route.path, ...pipline);
 		}
 	}
 }
-
-export default BaseController;

@@ -1,11 +1,11 @@
 import { config, DotenvConfigOutput, DotenvParseOutput } from "dotenv";
 import { inject, injectable } from "inversify";
 import type { ILogger } from "@apps/server/infrastructure/helpers/logger/logger.controller";
-import TYPES from "@apps/server/config/containers/types";
+import { TYPES } from "@apps/server/config/containers/types";
 import { IEnv } from "@apps/server/types/env";
 
 @injectable()
-class ConfigService {
+export class ConfigService {
 	private config: DotenvParseOutput;
 
 	constructor(
@@ -37,5 +37,3 @@ class ConfigService {
 		return this.config[key]!;
 	}
 }
-
-export default ConfigService;

@@ -4,7 +4,7 @@ import session from "express-session";
 
 console.log("REDIST DOTENV CONFIG", process.env["SESSION_SECRET"])
 
-const expressSession = session({
+export const expressSession = session({
   store: redisStore,
   secret: process.env["SESSION_SECRET"]!,
   name: COOKIE_NAME,
@@ -21,5 +21,3 @@ const expressSession = session({
   },
   // rolling: true
 })
-
-export default expressSession

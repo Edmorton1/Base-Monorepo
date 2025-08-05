@@ -3,12 +3,12 @@ import { inject, injectable } from "inversify";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { PREFIX } from "@libs/shared/CONST";
-import expressSession from "@apps/server/config/middlewares/Express.session";
-import expressError from "@apps/server/config/middlewares/Express.error";
+import {expressSession} from "@apps/server/config/middlewares/Express.session";
+import {expressError} from "@apps/server/config/middlewares/Express.error";
 import ServerRoutes from "@apps/server/server/express.routes";
 import helmet from "helmet";
 import type { ILogger } from "@apps/server/infrastructure/helpers/logger/logger.controller";
-import TYPES from "@apps/server/config/containers/types";
+import {TYPES} from "@apps/server/config/containers/types";
 import http, { Server } from "http";
 
 @injectable()

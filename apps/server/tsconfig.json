@@ -13,10 +13,6 @@
 			"@apps/server/*": ["./src/*"]
 		},
 
-		// "types": ["node", "jest"],
+		"types": ["node", "jest"],
 	},
-	"references": [
-		{ "path": "../../libs/types/tsconfig.json" },
-		{ "path": "../../libs/shared/tsconfig.json" }
-	]
 }

@@ -2,7 +2,7 @@ import { logger_pino } from "@apps/server/infrastructure/helpers/logger/pino";
 import { Request, Response, NextFunction } from "express";
 // import SessionRedis from "@app/server/infrastructure/redis/SessionRedis";
 
-class AuthMiddleware {
+export class AuthMiddleware {
 	OnlyAuth = (req: Request, res: Response, next: NextFunction) => {
 		logger_pino.info({ LOGGER_INFO_SESSION: req.session });
 
@@ -24,4 +24,3 @@ class AuthMiddleware {
 	};
 }
 
-export default new AuthMiddleware();
